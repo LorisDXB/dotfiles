@@ -1,0 +1,46 @@
+set wrap
+set number
+
+call plug#begin('~/.vim/plugged')
+Plug 'jiangmiao/auto-pairs'
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-css-color'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'Heliferepo/VimTek'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'preservim/nerdtree'
+Plug 'voldikss/vim-floaterm'
+Plug 'Yggdroot/indentLine'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-commentary'
+call plug#end()
+
+packadd YouCompleteMe
+
+" binds
+let mapleader = " "
+nnoremap <Leader>. :Files<CR>
+nnoremap <Leader>T :NERDTreeToggle<CR>
+nnoremap <Leader>F :FloatermToggle<CR>
+nnoremap <C-W><Right> <C-W>l
+nnoremap <C-W><Left> <C-W>h
+set tabstop=4       " Number of visual spaces per TAB
+set shiftwidth=4    " Number of spaces to use for each step of (auto)indent
+colorscheme retrobox
+
+" time script
+set background=dark
+
+" syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:ackprg = "ag --vimgrep"
+set laststatus=2
